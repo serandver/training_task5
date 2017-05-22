@@ -7,7 +7,13 @@ public class Book {
     private long edition;
     private int pages;
 
+    public Book() {
+        System.out.println("ua.kpi.tef.Book Default Class Constructor");
+
+    }
+
     public Book(String bookName, String author, String year, long edition, int pages) {
+        System.out.println("ua.kpi.tef.Book Class Constructor");
         this.bookName = bookName;
         this.author = author;
         this.year = year;
