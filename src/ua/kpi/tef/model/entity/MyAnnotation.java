@@ -1,4 +1,4 @@
-package ua.kpi.tef;
+package ua.kpi.tef.model.entity;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

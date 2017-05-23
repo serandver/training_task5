@@ -1,4 +1,4 @@
-package ua.kpi.tef;
+package ua.kpi.tef.model.entity;
 
 public class Book {
     private String bookName;
@@ -8,12 +8,12 @@ public class Book {
     private int pages;
 
     public Book() {
-        System.out.println("ua.kpi.tef.Book Default Class Constructor");
+        System.out.println("ua.kpi.tef.model.entity.Book Default Class Constructor");
 
     }
 
     public Book(String bookName, String author, String year, long edition, int pages) {
-        System.out.println("ua.kpi.tef.Book Class Constructor");
+        System.out.println("ua.kpi.tef.model.entity.Book Class Constructor");
         this.bookName = bookName;
         this.author = author;
         this.year = year;

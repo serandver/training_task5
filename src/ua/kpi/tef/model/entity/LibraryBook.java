@@ -1,4 +1,4 @@
-package ua.kpi.tef;
+package ua.kpi.tef.model.entity;
 
 public class LibraryBook extends Book {
 
@@ -7,12 +7,12 @@ public class LibraryBook extends Book {
 
     public LibraryBook() {
         super();
-        System.out.println("ua.kpi.tef.LibraryBook Default Class Constructor");
+        System.out.println("ua.kpi.tef.model.entity.LibraryBook Default Class Constructor");
     }
 
     public LibraryBook(String bookName, String author, String year, long edition, int pages, long inventoryNumber, String readerName) {
         super(bookName, author, year, edition, pages);
-        System.out.println("ua.kpi.tef.LibraryBook Class Constructor");
+        System.out.println("ua.kpi.tef.model.entity.LibraryBook Class Constructor");
         this.inventoryNumber = inventoryNumber;
         this.readerName = readerName;
     }
