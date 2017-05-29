@@ -1,28 +1,32 @@
 package ua.kpi.tef.model.entity;
 
-public class LibraryBook extends Book {
+import ua.kpi.tef.view.View;
+
+import java.io.Serializable;
+
+public class LibraryBook extends Book implements Serializable{
 
     private long inventoryNumber;
     private String readerName;
 
     public LibraryBook() {
         super();
-        System.out.println("ua.kpi.tef.model.entity.LibraryBook Default Class Constructor");
+        View.print("ua.kpi.tef.model.entity.LibraryBook Default Class Constructor");
     }
 
     public LibraryBook(String bookName, String author, String year, long edition, int pages, long inventoryNumber, String readerName) {
         super(bookName, author, year, edition, pages);
-        System.out.println("ua.kpi.tef.model.entity.LibraryBook Class Constructor");
+        View.print("ua.kpi.tef.model.entity.LibraryBook Class Constructor with parameters");
         this.inventoryNumber = inventoryNumber;
         this.readerName = readerName;
     }
 
-    @MyAnnotation
+    @MyMethodAnnotation
     public long getInventoryNumber() {
         return inventoryNumber;
     }
 
-    @MyAnnotation
+    @MyMethodAnnotation
     private String getReaderName() {
         return readerName;
     }

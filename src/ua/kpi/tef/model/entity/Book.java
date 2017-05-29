@@ -1,19 +1,28 @@
 package ua.kpi.tef.model.entity;
 
-public class Book {
+import ua.kpi.tef.view.View;
+
+import java.io.Serializable;
+
+public class Book implements Serializable{
     private String bookName;
+
+    @MyFieldAnnotation
     private String author;
+
     private String year;
+
     private long edition;
+
+    @MyFieldAnnotation
     private int pages;
 
     public Book() {
-        System.out.println("ua.kpi.tef.model.entity.Book Default Class Constructor");
-
+        View.print("ua.kpi.tef.model.entity.Book Default Class Constructor");
     }
 
     public Book(String bookName, String author, String year, long edition, int pages) {
-        System.out.println("ua.kpi.tef.model.entity.Book Class Constructor");
+        View.print("ua.kpi.tef.model.entity.Book Class Constructor with parameters");
         this.bookName = bookName;
         this.author = author;
         this.year = year;
@@ -21,7 +30,7 @@ public class Book {
         this.pages = pages;
     }
 
-    @MyAnnotation
+    @MyMethodAnnotation
     public String getBookName() {
         return bookName;
     }
@@ -38,7 +47,7 @@ public class Book {
         return pages;
     }
 
-    @MyAnnotation
+    @MyMethodAnnotation
     private String getAuthor() {
         return author;
     }
