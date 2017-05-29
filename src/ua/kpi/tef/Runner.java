@@ -9,8 +9,8 @@ public class Runner {
     public static void main(String[] args) {
 
         // Initialization
-        ReflectionUtils reflectionUtils = new ReflectionUtils();
         View view = new View();
+        ReflectionUtils reflectionUtils = new ReflectionUtils(view);
         Controller controller = new Controller(reflectionUtils, view);
 
         // Run

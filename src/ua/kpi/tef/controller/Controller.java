@@ -35,14 +35,14 @@ public class Controller {
         reflectionUtils.printConstructors(childClass);
     }
 
-    private Book getChildInstance() {
-        View.print("Create child instance:");
-        return new LibraryBook("1812", "Pushkin", "1850", 987654321L,
-                300, 1041220000L, "Petya");
+    private Book getParentInstance() {
+        View.print(view.getCreateParentObjectMessage());
+        return new Book("1984", "George Orwell", "1960", 1234567890L, 500);
     }
 
-    private Book getParentInstance() {
-        View.print("Create parent instance:");
-        return new Book("1984", "George Orwell", "1960", 1234567890L, 500);
+    private Book getChildInstance() {
+        View.print(view.getCreateChildObjectMessage());
+        return new LibraryBook("1812", "Pushkin", "1850", 987654321L,
+                300, 1041220000L, "Petya");
     }
 }

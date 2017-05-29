@@ -1,17 +1,23 @@
 package ua.kpi.tef.controller;
 
 import ua.kpi.tef.model.entity.Book;
+import ua.kpi.tef.view.View;
 
 import java.lang.reflect.*;
 import java.util.Arrays;
 
-import static ua.kpi.tef.view.View.concat;
-import static ua.kpi.tef.view.View.print;
+import static ua.kpi.tef.view.View.*;
 
 public class ReflectionUtils {
 
+    private View view;
+
+    public ReflectionUtils(View view) {
+        this.view = view;
+    }
+
     void invokeAnnotatedMethods(Class bookClass, Class annotationClass, Book bookInstance) {
-        print(concat("Invoke methods, annotated with ", annotationClass.getName()));
+        print(concat(view.getInvokeMethodMessage(), annotationClass.getName(), COLON));
         for (Method method: bookClass.getDeclaredMethods()) {
             if(method.isAnnotationPresent(annotationClass)) {
                 method.setAccessible(true);
@@ -25,31 +31,30 @@ public class ReflectionUtils {
                 } catch (InvocationTargetException e) {
                     e.printStackTrace();
                 }
-                print(concat(method.getName(), ": ", result.toString()));
+                print(concat(TAB, method.getName(), COLON, result.toString()));
             }
         }
     }
 
     void printInterfaces(Class clazz) {
-        print(concat("Interfaces of ", clazz.getName(), ": "));
-        Type[] interfaces = clazz.getGenericInterfaces();
-        print(Arrays.toString(interfaces));
+        print(concat(view.getPrintInterfacesMessage(), clazz.getName(), COLON));
+        print(concat(TAB, Arrays.toString(clazz.getGenericInterfaces())));
     }
 
     void printFields(Class clazz) {
-        print(concat("All fields of ", clazz.getName(), ": "));
+        print(concat(view.getPrintFieldsMessage(), clazz.getName(), COLON));
         Field[] fields = clazz.getDeclaredFields();
         for (Field field : fields) {
-            print(concat("\t", getModifiers(field.getModifiers()),
-                    getType(field.getType()), " ", field.getName(), ";"));
+            print(concat(TAB, getModifiers(field.getModifiers()),
+                    getType(field.getType()), SPACE, field.getName(), SEMICOLON));
         }
     }
 
     void printConstructors (Class clazz) {
-        print(concat("Constructors of ", clazz.getName(), ": "));
+        print(concat(view.getPrintConstructorMessage(), clazz.getName(), COLON));
         Constructor[] constructors = clazz.getDeclaredConstructors();
         for (Constructor c : constructors) {
-            print(concat("\t", getModifiers(c.getModifiers()), clazz.getSimpleName(),
+            print(concat(TAB, getModifiers(c.getModifiers()), clazz.getSimpleName(),
                     Arrays.toString(c.getParameterTypes())));
         }
     }

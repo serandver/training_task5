@@ -47,6 +47,26 @@ public class Book implements Serializable{
         return pages;
     }
 
+    public void setBookName(String bookName) {
+        this.bookName = bookName;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
+    public void setYear(String year) {
+        this.year = year;
+    }
+
+    public void setEdition(long edition) {
+        this.edition = edition;
+    }
+
+    public void setPages(int pages) {
+        this.pages = pages;
+    }
+
     @MyMethodAnnotation
     private String getAuthor() {
         return author;
